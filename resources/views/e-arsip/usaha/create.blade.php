@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="col-6 mb-3 text-end">
                                         <a href="../usaha" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
-                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah Data</button>
+                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Tambah</button>
                                     </div>
                                 </div>
                             </form>
