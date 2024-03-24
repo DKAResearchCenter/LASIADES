@@ -66,38 +66,81 @@
                     <div class="card custom-card">
                         <div class="card-header justify-content-between">
                             <div class="card-title">
-                                Buat Akun Baru
+                                Buat Data Baru
                             </div>
                         </div>
                         <div class="card-body">
                             <form method="post" action="./create">
                                 @csrf
-                                <input name="id" style="display: none">
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Nama Lengkap <b style="color='red';">*</b></label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">NIK <b style="color='red';">*</b></label>
+                                        <input type="text" name="nik" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Email Pengguna</label>
-                                        <input type="text" name="email" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Nama</label>
+                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Password</label>
-                                        <input type="password" name="password" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Email</label>
+                                        <input name="email" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Password Konfirmasi</label>
-                                        <input type="password" name="confirm_password" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">No Telp</label>
+                                        <input name="phone" type="number" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Jenis Kelamin</label>
+                                        <select class="js-example-basic-single" name="jenis_kelamin">
+                                            <option value="LAKI-LAKI" selected>LAKI-LAKI</option>
+                                            <option value="PEREMPUAN">PEREMPUAN</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Pekerjaan</label>
+                                        <input name="pekerjaan" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tempat Lahir</label>
+                                        <input name="tempat_lahir" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir</label>
+                                        <input name="tanggal_lahir" type="date" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir</label>
+                                        <textarea name="alamat" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">File</label>
+                                        <input type="file" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Status</label>
+                                        <select class="js-example-basic-single" name="status">
+                                            <option value="BELUM DIPROSES" selected>BELUM DIPROSES</option>
+                                            <option value="DIPROSES">DIPROSES</option>
+                                            <option value="BATAL">BATAL</option>
+                                            <option value="SELESAI">SELESAI</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../account" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <a href="../usaha" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
                                         <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah Data</button>
                                     </div>
                                 </div>

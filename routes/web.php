@@ -16,6 +16,17 @@ Route::group(['prefix'=> '/','middleware' => CheckIsLogged::class], function (){
         });
         Route::group(['prefix'=>'usaha'], function (){
             Route::get('/', [Controllers\earsip\usaha::class, 'index']);
+            Route::delete("/",[Controllers\earsip\usaha::class,'delete']);
+
+            Route::group(['prefix'=>'create'], function (){
+                Route::get('/', [Controllers\earsip\usaha::class, 'create']);
+                Route::post('/', [Controllers\earsip\usaha::class, 'create']);
+            });
+
+            Route::group(['prefix'=>'edit'], function (){
+                Route::get("/",[Controllers\earsip\usaha::class, 'edit']);
+                Route::post("/",[Controllers\earsip\usaha::class, 'edit']);
+            });
         });
     });
     Route::group(['prefix'=>'system'], function () {

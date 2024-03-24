@@ -61,7 +61,7 @@
             <!-- Start:: row-3 -->
             <div class="row">
                 <div class="col-xl-12">
-                    <button class="btn btn-lg btn-primary-gradient mb-3">Tambahkan Data Baru</button>
+                    <a href="usaha/create" class="btn btn-lg btn-primary-gradient mb-3">Tambahkan Data Baru</a>
                     <div class="card custom-card">
                         <div class="card-header">
 
@@ -77,35 +77,27 @@
                                     <th>KK</th>
                                     <th>Nama Lengkap</th>
                                     <th>No Telp</th>
-                                    <th>Penghasilan / Bulan</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Pekerjaan</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($surat_usaha as $key => $data)
                                 <tr>
-                                    <td>7362128****</td>
-                                    <td>238822***</td>
-                                    <td>Saiful Akbar</td>
-                                    <td>0837272****</td>
-                                    <td>+- 2.500.000</td>
+                                    <th>{{$data->id}}</th>
+                                    <th>{{$data->nik}}</th>
+                                    <th>{{$data->nama}}</th>
+                                    <th>{{$data->phone}}</th>
+                                    <th>{{$data->jenis_kelamin}}</th>
+                                    <th>{{$data->pekerjaan}}</th>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></button>
+                                        <a href="usaha/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;
-                                        <button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-delete"></i></button>
+                                        <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>7362128****</td>
-                                    <td>238822***</td>
-                                    <td>Saifulimuddin</td>
-                                    <td>0837272****</td>
-                                    <td>+- 2.500.000</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></button>
-                                        &nbsp;
-                                        <button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-delete"></i></button>
-                                    </td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -170,6 +162,8 @@
 <script src="/assets/js/index.js"></script>
 
 
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
 <!-- Custom-Switcher JS -->
 <script src="/assets/js/custom-switcher.min.js"></script>
 <!-- Custom JS -->
@@ -188,7 +182,60 @@
 
 <!-- Internal Datatables JS -->
 <script src="/assets/js/datatables.js"></script>
+<script>
 
+    $(document).on("click", "div.edit", function () {
+        let value = $(this).children(".id_data").text();
+        Swal.fire({
+            title: 'Yakin Ingin Menghapus Data Ini',
+            text: "Pastikan Data Yang Anda Ingin Hapus Telah Benar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Ya Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: `${window.location.href}`,
+                    method: "DELETE",
+                    cache: false,
+                    data : {
+                        id : Number(value),
+                        _token : "{{ csrf_token() }}"
+                    },
+                    success: (response) => {
+                        if (response.status){
+                            Swal.fire({
+                                title: 'Data Berhasil Dihapus',
+                                text: response.msg,
+                                icon: 'success',
+                                timer : 2000
+                            }).then(() => {
+                                window.location.reload();
+                            })
+                        }else{
+                            Swal.fire({
+                                title: 'Data Gagal Dihapus',
+                                text: response.msg,
+                                icon: 'error',
+                                timer : 2000
+                            });
+                        }
+                    },
+                    error : (error) => {
+                        Swal.fire({
+                            title: 'Terjadi Error',
+                            text: "Gagal Menghapus Data",
+                            icon: 'error',
+                            timer : 2000
+                        });
+                    }
+                });
+            }
+        })
+    })
+</script>
 </body>
 
 </html>

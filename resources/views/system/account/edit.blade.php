@@ -66,7 +66,7 @@
                     <div class="card custom-card">
                         <div class="card-header justify-content-between">
                             <div class="card-title">
-                                Edit Data {{ $users_login->name }}
+                                Edit Data {{ $users_login->nama }}
                             </div>
                         </div>
                         <div class="card-body">
