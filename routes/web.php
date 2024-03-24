@@ -9,10 +9,31 @@ Route::group(['prefix'=> '/','middleware' => CheckIsLogged::class], function (){
     Route::group(['prefix'=>'e-arsip'], function (){
         Route::group(['prefix'=>'domisili'], function (){
             Route::get('/', [Controllers\earsip\domisili::class, 'index']);
-            Route::get("/create",[Controllers\earsip\domisili::class,'create']);
+            Route::delete("/",[Controllers\earsip\domisili::class,'delete']);
+
+            Route::group(['prefix'=>'create'], function (){
+                Route::get('/', [Controllers\earsip\domisili::class, 'create']);
+                Route::post('/', [Controllers\earsip\domisili::class, 'create']);
+            });
+
+            Route::group(['prefix'=>'edit'], function (){
+                Route::get("/",[Controllers\earsip\domisili::class, 'edit']);
+                Route::post("/",[Controllers\earsip\domisili::class, 'edit']);
+            });
         });
         Route::group(['prefix'=>'tidak-mampu'], function (){
             Route::get('/', [Controllers\earsip\TidakMampu::class, 'index']);
+            Route::delete("/",[Controllers\earsip\TidakMampu::class,'delete']);
+
+            Route::group(['prefix'=>'create'], function (){
+                Route::get('/', [Controllers\earsip\TidakMampu::class, 'create']);
+                Route::post('/', [Controllers\earsip\TidakMampu::class, 'create']);
+            });
+
+            Route::group(['prefix'=>'edit'], function (){
+                Route::get("/",[Controllers\earsip\TidakMampu::class, 'edit']);
+                Route::post("/",[Controllers\earsip\TidakMampu::class, 'edit']);
+            });
         });
         Route::group(['prefix'=>'usaha'], function (){
             Route::get('/', [Controllers\earsip\usaha::class, 'index']);

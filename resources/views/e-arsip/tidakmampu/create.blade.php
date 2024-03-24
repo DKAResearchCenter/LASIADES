@@ -41,11 +41,11 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Tambah Data Surat Domisili</h5>
+                    <h5 class="page-title fs-21 mb-1">Tambah Data Surat Tidak Mampu</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">e-arsip</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Surat Domisili</li>
+                            <li class="breadcrumb-item" aria-current="page">Surat Tidak Mampu</li>
                             <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
                         </ol>
                     </nav>

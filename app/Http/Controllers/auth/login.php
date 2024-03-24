@@ -30,6 +30,7 @@ class login extends Controller {
             if($request->has("password") && strlen($request->get("password")) > 0){
                 $auth = DB::table("users_login")
                     ->where("email","=",$request->get("email"))
+                    ->orWhere("username",'=',$request->get("email"))
                     ->where("password","=",$request->get("password"))
                     ->first();
 

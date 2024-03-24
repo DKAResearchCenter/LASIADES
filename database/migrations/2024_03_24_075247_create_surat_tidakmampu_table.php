@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string("nama",30);
             $table->string("email",20);
             $table->string("phone",30);
-            $table->enum("jenis_kelamin",["PEREMPUAN","LAKI-LAKI"])->change();
+            $table->enum("jenis_kelamin",["PEREMPUAN","LAKI-LAKI"])->default("LAKI-LAKI");
             $table->string("penghasilan_perbulan");
-            $table->string("file");
-            $table->enum("status",["BELUM DIPROSES","DIPROSES","BATAL","SELESAI"])->change();
+            $table->string("file")->nullable();
+            $table->enum("status",["BELUM DIPROSES","DIPROSES","BATAL","SELESAI"])->default("BELUM DIPROSES");
             $table->timestamps();
         });
     }

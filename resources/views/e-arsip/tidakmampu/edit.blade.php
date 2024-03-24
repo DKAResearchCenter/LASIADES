@@ -41,12 +41,12 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Tambah Data Surat Domisili</h5>
+                    <h5 class="page-title fs-21 mb-1">Edit Data Tidak Mampu</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">e-arsip</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Surat Domisili</li>
-                            <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">E-arsip</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Surat Tidak Mampu</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
                         </ol>
                     </nav>
                 </div>
@@ -66,37 +66,34 @@
                     <div class="card custom-card">
                         <div class="card-header justify-content-between">
                             <div class="card-title">
-                                Buat Data Baru
+                                Edit Data {{ $tidakmampu->nama }} ({{ $tidakmampu->no_kk }})
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="./create">
+                            <form method="post" action="./edit">
                                 @csrf
+                                <input name="id" style="display: none" value="{{ $tidakmampu->id }}">
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">KK <b style="color='red';">*</b></label>
-                                        <input type="number" name="kk" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">No KK <b style="color='red';">*</b></label>
+                                        <input type="text" name="kk" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->no_kk }}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->nama }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Email</label>
-                                        <input name="email" class="form-control" id="form-text" placeholder="">
+                                        <input name="email" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->email }}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">No Telp</label>
-                                        <input name="phone" type="number" class="form-control" id="form-text" placeholder="">
+                                        <input name="phone" type="number" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->phone }}">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Penghasilan Perbulan</label>
-                                        <input name="penghasilan_perbulan" class="form-control" id="form-text" placeholder="">
-                                    </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Jenis Kelamin</label>
                                         <select class="js-example-basic-single" name="jenis_kelamin">
@@ -104,12 +101,15 @@
                                             <option value="PEREMPUAN">PEREMPUAN</option>
                                         </select>
                                     </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Penghasilan Perbulan</label>
+                                        <input name="pekerjaan" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->penghasilan_perbulan }}">
+                                    </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">File</label>
-                                        <input type="file" class="form-control" id="form-text" placeholder="">
+                                        <input type="file" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->file }}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Status</label>
@@ -125,7 +125,7 @@
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../usaha" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <a href="../tidak-mampu" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
                                         <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah Data</button>
                                     </div>
                                 </div>
