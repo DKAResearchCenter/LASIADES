@@ -74,11 +74,11 @@
                                 <thead>
                                 <tr>
                                     <th>NIK</th>
-                                    <th>KK</th>
+                                    <th>No KK</th>
+                                    <th>NIK Pemohon</th>
                                     <th>Nama Lengkap</th>
-                                    <th>No Telp</th>
-                                    <th>Jenis Kelamin</th>
-                                    <th>Penghasilan Perbulan</th>
+                                    <th>alamat</th>
+                                    <th>Alasan Pindah</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
@@ -87,12 +87,12 @@
                                 <tr>
                                     <th>{{$data->id}}</th>
                                     <th>{{$data->no_kk}}</th>
-                                    <th>{{$data->nama}}</th>
-                                    <th>{{$data->phone}}</th>
-                                    <th>{{$data->jenis_kelamin}}</th>
-                                    <th>{{$data->penghasilan_perbulan}}</th>
+                                    <th>{{$data->nik_pemohon}}</th>
+                                    <th>{{$data->nama_lengkap}}</th>
+                                    <th>{{$data->alamat}}</th>
+                                    <th>{{$data->alasan_pindah}}</th>
                                     <td>
-                                        <a href="tidak-mampu/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="domisili/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                     </td>

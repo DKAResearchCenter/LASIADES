@@ -72,37 +72,85 @@
                         <div class="card-body">
                             <form method="post" action="./create">
                                 @csrf
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Pemohon</h6>
+                                </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">KK <b style="color='red';">*</b></label>
-                                        <input type="number" name="kk" class="form-control" id="form-text" placeholder="">
+                                        <input type="number" name="no_kk" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">NIK <b style="color='red';">*</b></label>
+                                        <input type="number" name="nik_pemohon" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alamat</label>
+                                        <input type="text" name="alamat" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="nama_lengkap" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <!-- ############################ -->
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Pindah</h6>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alasan Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="alasan_pindah" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tujuan Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="alamat_tujuan" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Email</label>
-                                        <input name="email" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Klarifikasi Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="klarifikasi_pindah" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">No Telp</label>
-                                        <input name="phone" type="number" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Jenis Kepindahan <b style="color='red';">*</b></label>
+                                        <input type="text" name="jenis_kepindahan" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Penghasilan Perbulan</label>
-                                        <input name="penghasilan_perbulan" class="form-control" id="form-text" placeholder="">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Status KK Tidak Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="status_kk_tidak_pindah" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Jenis Kelamin</label>
-                                        <select class="js-example-basic-single" name="jenis_kelamin">
-                                            <option value="LAKI-LAKI" selected>LAKI-LAKI</option>
-                                            <option value="PEREMPUAN">PEREMPUAN</option>
-                                        </select>
+                                        <label for="form-text" class="form-label fs-14 text-dark">Status KK Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="status_kk_yang_pindah" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Keluarga</h6>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Nik keluarga Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_nik" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Nama Keluarga Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_nama" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tempat Lahir Keluarga Yang <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_tempat_lahir" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir Keluarga Yang Pindah<b style="color='red';">*</b></label>
+                                        <input type="date" name="keluarga_pindah_tanggal_lahir" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
 
@@ -125,7 +173,7 @@
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../usaha" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <a href="../domisili" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
                                         <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Tambah</button>
                                     </div>
                                 </div>
