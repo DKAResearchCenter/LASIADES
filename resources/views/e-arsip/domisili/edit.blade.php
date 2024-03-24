@@ -41,11 +41,11 @@
             <!-- Page Header -->
             <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
                 <div class="my-auto">
-                    <h5 class="page-title fs-21 mb-1">Edit Data Tidak Mampu</h5>
+                    <h5 class="page-title fs-21 mb-1">Edit  Data Surat Domisili</h5>
                     <nav>
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">E-arsip</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Surat Tidak Mampu</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">e-arsip</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Surat Domisili</li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
                         </ol>
                     </nav>
@@ -66,50 +66,99 @@
                     <div class="card custom-card">
                         <div class="card-header justify-content-between">
                             <div class="card-title">
-                                Edit Data {{ $tidakmampu->nama }} ({{ $tidakmampu->no_kk }})
+                                Edit Data Domisili Pemohon {{ $domisili->nama_lengkap }}
                             </div>
                         </div>
                         <div class="card-body">
                             <form method="post" action="./edit">
                                 @csrf
-                                <input name="id" style="display: none" value="{{ $tidakmampu->id }}">
+                                <input name="id" style="display: none" value="{{ $domisili->id }}">
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Pemohon</h6>
+                                </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">No KK <b style="color='red';">*</b></label>
-                                        <input type="text" name="kk" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->no_kk }}">
+                                        <label for="form-text" class="form-label fs-14 text-dark">KK <b style="color='red';">*</b></label>
+                                        <input type="number" name="no_kk" class="form-control" id="form-text" placeholder="" value="{{$domisili->no_kk }}">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">NIK <b style="color='red';">*</b></label>
+                                        <input type="number" name="nik_pemohon" class="form-control" id="form-text" placeholder="" value="{{$domisili->nik_pemohon }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alamat</label>
+                                        <input type="text" name="alamat" class="form-control" id="form-text" placeholder="" value="{{$domisili->alamat }}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama</label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->nama }}">
+                                        <input type="text" name="nama_lengkap" class="form-control" id="form-text" placeholder="" value="{{$domisili->nama_lengkap }}">
+                                    </div>
+                                </div>
+                                <!-- ############################ -->
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Pindah</h6>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alasan Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="alasan_pindah" class="form-control" id="form-text" placeholder="" value="{{$domisili->alasan_pindah }}">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tujuan Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="alamat_tujuan" class="form-control" id="form-text" placeholder="" value="{{ $domisili->alamat_tujuan }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Email</label>
-                                        <input name="email" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->email }}">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Klarifikasi Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="klarifikasi_pindah" class="form-control" id="form-text" placeholder="" value="{{$domisili->klarifikasi_pindah }}">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">No Telp</label>
-                                        <input name="phone" type="number" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->phone }}">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Jenis Kepindahan <b style="color='red';">*</b></label>
+                                        <input type="text" name="jenis_kepindahan" class="form-control" id="form-text" placeholder="" value="{{$domisili->jenis_kepindahan }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Jenis Kelamin</label>
-                                        <select class="js-example-basic-single" name="jenis_kelamin">
-                                            <option value="LAKI-LAKI" selected>LAKI-LAKI</option>
-                                            <option value="PEREMPUAN">PEREMPUAN</option>
-                                        </select>
+                                        <label for="form-text" class="form-label fs-14 text-dark">Status KK Tidak Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="status_kk_tidak_pindah" class="form-control" id="form-text" placeholder="" value="{{$domisili->status_kk_tidak_pindah }}">
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Penghasilan Perbulan</label>
-                                        <input name="pekerjaan" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->penghasilan_perbulan }}">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Status KK Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="status_kk_yang_pindah" class="form-control" id="form-text" placeholder="" value="{{$domisili->status_kk_yang_pindah }}">
                                     </div>
                                 </div>
+
+                                <div class="row mb-3">
+                                    <h6 class="text-center">Data Keluarga</h6>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Nik keluarga Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_nik" class="form-control" id="form-text" placeholder="" value="{{$domisili->keluarga_pindah_nik }}">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Nama Keluarga Yang Pindah <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_nama" class="form-control" id="form-text" placeholder="" value="{{$domisili->keluarga_pindah_nama }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tempat Lahir Keluarga Yang <b style="color='red';">*</b></label>
+                                        <input type="text" name="keluarga_pindah_tempat_lahir" class="form-control" id="form-text" placeholder="" value="{{$domisili->keluarga_pindah_tempat_lahir }}">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir Keluarga Yang Pindah<b style="color='red';">*</b></label>
+                                        <input type="date" name="keluarga_pindah_tanggal_lahir" class="form-control" id="form-text" placeholder="" value="{{$domisili->keluarga_pindah_tanggal_lahir }}">
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">File</label>
-                                        <input type="file" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->file }}">
+                                        <input type="file" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Status</label>
@@ -125,8 +174,8 @@
                                     <div class="col-6 mb-3">
                                     </div>
                                     <div class="col-6 mb-3 text-end">
-                                        <a href="../tidak-mampu" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
-                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah Data</button>
+                                        <a href="../domisili" class="btn btn-lg btn-danger-gradient mb-3">Batalkan</a>
+                                        <button type="submit" class="btn btn-lg btn-success-gradient mb-3">Ubah</button>
                                     </div>
                                 </div>
                             </form>
@@ -206,10 +255,6 @@
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <!-- Internal Datatables JS -->
 <script src="/assets/js/datatables.js"></script>

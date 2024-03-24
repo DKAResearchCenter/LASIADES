@@ -75,12 +75,23 @@ class domisili extends Controller
         switch ($method){
             case "POST" :
                 $requestData = array(
-                    'no_kk' => $request->get("kk"),
-                    'nama' => $request->get("nama"),
-                    'email' => $request->get("email"),
-                    'phone' => $request->get("phone"),
-                    'jenis_kelamin' => $request->get("jenis_kelamin"),
-                    'penghasilan_perbulan' => $request->get("penghasilan_perbulan"),
+                    'no_kk' => $request->get("no_kk"),
+                    'nik_pemohon' => $request->get("nik_pemohon"),
+                    'nama_lengkap' => $request->get("nama_lengkap"),
+                    'alamat' => $request->get("alamat"),
+
+                    'alasan_pindah' => $request->get("alasan_pindah"),
+                    'alamat_tujuan' => $request->get("alamat_tujuan"),
+                    'klarifikasi_pindah' => $request->get("klarifikasi_pindah"),
+                    'jenis_kepindahan' => $request->get("jenis_kepindahan"),
+                    'status_kk_tidak_pindah' => $request->get("status_kk_tidak_pindah"),
+                    'status_kk_yang_pindah' => $request->get("status_kk_yang_pindah"),
+
+                    'keluarga_pindah_nik' => $request->get("keluarga_pindah_nik"),
+                    'keluarga_pindah_nama' => $request->get("keluarga_pindah_nama"),
+                    'keluarga_pindah_tempat_lahir' => $request->get("keluarga_pindah_tempat_lahir"),
+                    'keluarga_pindah_tanggal_lahir' => $request->get("keluarga_pindah_tanggal_lahir"),
+
                     'status' => $request->get("status")
                 );
 
@@ -89,19 +100,20 @@ class domisili extends Controller
                     ->update($requestData);
 
                 if ($updated === 1){
-                    return redirect("/e-arsip/tidak-mampu")
+                    return redirect("/e-arsip/domisili")
                         ->with("status", array(
                             'status' => true,
                             'code' => 200,
                             'msg' => "Berhasil Mengupdate data"
                         ));
                 }else{
+                    //return response()->json($requestAll);
                     return redirect()
                         ->back()
                         ->with("status", array(
                             'status' => false,
                             'code' => 400,
-                            'msg' => "Gagal Mengupdate data atau data tidak berubah"
+                            'msg' => "Gagal mengupdate Data"
                         ));
                 }
             default :
