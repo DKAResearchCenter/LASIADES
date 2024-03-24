@@ -14,11 +14,12 @@ class login extends Controller {
                 'session' => request()->session()->get("auth_login")
             ]);
         }else{
-            return redirect("/")
+            return redirect()
+                ->back()
                 ->with("status", array(
                     'status' => true,
                     'code' => 200,
-                    'msg' => "Anda Telah Login"
+                    'msg' => "Anda Telah Login. Harap Keluar Terlebih Dahulu"
                 ));
         }
     }

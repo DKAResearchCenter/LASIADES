@@ -20,9 +20,22 @@ Route::group(['prefix'=> '/','middleware' => CheckIsLogged::class], function (){
     });
     Route::group(['prefix'=>'system'], function () {
         Route::group(['prefix'=>'account'], function (){
+
             Route::get('/', [Controllers\System\Account::class, 'index']);
-            Route::get("/edit",[Controllers\System\Account::class, 'edit']);
-            Route::post("/edit",[Controllers\System\Account::class, 'edit']);
+            Route::delete("/",[Controllers\System\Account::class,'delete']);
+
+            Route::group(['prefix'=>'create'], function (){
+                Route::get('/', [Controllers\System\Account::class, 'create']);
+                Route::post('/', [Controllers\System\Account::class, 'create']);
+            });
+
+            Route::group(['prefix'=>'edit'], function (){
+                Route::get("/",[Controllers\System\Account::class, 'edit']);
+                Route::post("/",[Controllers\System\Account::class, 'edit']);
+            });
+
+
+
         });
 
         Route::group(['prefix'=>'dusun'], function (){

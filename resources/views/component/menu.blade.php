@@ -63,9 +63,9 @@
                     <li class="slide side-menu__label1">
                         <a href="javascript:void(0);">System</a>
                     </li>
-                    <li class="slide">
+                    <!--<li class="slide">
                         <a href="/system/dusun" class="side-menu__item {{ (request()->is('system/dusun')) ? 'active' : '' }}">Managemen Dusun</a>
-                    </li>
+                    </li>-->
                     <li class="slide">
                         <a href="/system/account" class="side-menu__item {{ (request()->is('system/account')) ? 'active' : '' }} {{ (request()->is('system/account/*')) ? 'active' : '' }}">Managemen Akun</a>
                     </li>

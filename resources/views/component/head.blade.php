@@ -41,6 +41,7 @@
 
     <!-- Jsvector Maps -->
     <link rel="stylesheet" href="/assets/libs/jsvectormap/css/jsvectormap.min.css">
+    <link rel="stylesheet" href="/assets/libs/sweetalert2/sweetalert2.min.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">
