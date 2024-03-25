@@ -10,10 +10,16 @@ class usaha extends Controller
 {
     public function Index(){
 
-        $surat_usaha = DB::table("surat_usaha")->get();
+        $session = request()->session()->get("auth_login");
+        if ($session->level_access !== "ADMIN"){
+            $surat_usaha = DB::table("surat_usaha")->where("id","=",$session->id)->get();
+        }else{
+            $surat_usaha = DB::table("surat_usaha")->get();
+        }
+
         return view("e-arsip.usaha.index", [
             'surat_usaha' => $surat_usaha,
-            'session' => request()->session()->get("auth_login")
+            'session' => $session
         ]);
     }
 

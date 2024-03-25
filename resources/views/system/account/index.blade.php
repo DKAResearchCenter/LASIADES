@@ -61,7 +61,9 @@
             <!-- Start:: row-3 -->
             <div class="row">
                 <div class="col-xl-12">
+                    @if($session->level_access === "ADMIN")
                     <a href="account/create" class="btn btn-lg btn-primary-gradient mb-3">Tambahkan Akun Baru</a>
+                    @endif
                     <div class="card custom-card">
                         <div class="card-header">
 
@@ -76,22 +78,30 @@
                                     <th>ID</th>
                                     <th>Nama Lengkap</th>
                                     <th>Email</th>
-                                    <th>Tanggal Dibuat</th>
+                                    <th>Username</th>
+                                    <th>Level Akses</th>
+                                    @if($session->level_access === "ADMIN")
                                     <th>Aksi</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users_login as $key => $data)
+
+
                                 <tr>
                                     <th>{{$data->id}}</th>
                                     <th>{{$data->name}}</th>
                                     <th>{{$data->email}}</th>
-                                    <th>{{$data->created_at}}</th>
+                                    <th>{{$data->username}}</th>
+                                    <th>{{$data->level_access}}</th>
+                                    @if($session->level_access === "ADMIN")
                                     <td>
                                         <a href="account/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                                 </tbody>

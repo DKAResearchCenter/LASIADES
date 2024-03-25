@@ -10,10 +10,15 @@ class domisili extends Controller
 {
     public function Index(){
 
-        $domisili = DB::table("surat_domisili")->get();
+        $session = request()->session()->get("auth_login");
+        if ($session->level_access !== "ADMIN"){
+            $domisili = DB::table("surat_domisili")->where("id","=",$session->id)->get();
+        }else{
+            $domisili = DB::table("surat_domisili")->get();
+        }
         return view("e-arsip.domisili.index", [
             'domisili' => $domisili,
-            'session' => request()->session()->get("auth_login")
+            'session' => $session
         ]);
     }
 

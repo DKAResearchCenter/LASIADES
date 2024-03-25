@@ -10,10 +10,15 @@ class TidakMampu extends Controller
 {
     public function Index(){
 
-        $tidakmampu = DB::table("surat_tidakmampu")->get();
+        $session = request()->session()->get("auth_login");
+        if ($session->level_access !== "ADMIN"){
+            $tidakmampu = DB::table("surat_tidakmampu")->where("id","=",$session->id)->get();
+        }else{
+            $tidakmampu = DB::table("surat_tidakmampu")->get();
+        }
         return view("e-arsip.TidakMampu.index", [
             'tidakmampu' => $tidakmampu,
-            'session' => request()->session()->get("auth_login")
+            'session' => $session
         ]);
     }
 

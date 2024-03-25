@@ -131,9 +131,11 @@
                                         <label for="form-text" class="form-label fs-14 text-dark">Status</label>
                                         <select class="js-example-basic-single" name="status">
                                             <option value="BELUM DIPROSES" selected>BELUM DIPROSES</option>
+                                            @if($session->level_access === "ADMIN")
                                             <option value="DIPROSES">DIPROSES</option>
                                             <option value="BATAL">BATAL</option>
                                             <option value="SELESAI">SELESAI</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>

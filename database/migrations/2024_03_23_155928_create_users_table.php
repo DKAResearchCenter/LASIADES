@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum("level_access",["USER","ADMIN"])->default("USER");
             $table->rememberToken();
             $table->timestamps();
         });
@@ -28,6 +29,7 @@ return new class extends Migration
                 'name' => "Administrator",
                 'username' => "admin",
                 'email' => "admin@gmail.com",
+                'level_access' => "ADMIN",
                 'password' => "123456"
             )
         );

@@ -27,6 +27,7 @@ class Account extends Controller
                     $requestData = array(
                         'name' => $request->get("name"),
                         'email' => $request->get("email"),
+                        "level_access" => $request->get("level_access"),
                         'username' => $request->get("username"),
                         'password' => $request->get("password")
                     );
@@ -76,6 +77,7 @@ class Account extends Controller
                     $requestData = array(
                         'name' => $request->get("name"),
                         'email' => $request->get("email"),
+                        "level_access" => $request->get("level_access"),
                         'username' => $request->get("username"),
                         'password' => $request->get("password")
                     );
