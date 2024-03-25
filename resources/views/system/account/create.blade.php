@@ -76,7 +76,7 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama Lengkap <b style="color='red';">*</b></label>
-                                        <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
+                                        <input type="text" name="name" class="form-control" id="form-text" placeholder="">
                                     </div>
                                 </div>
                                 <div class="row">
