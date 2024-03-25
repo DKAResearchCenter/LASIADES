@@ -74,9 +74,15 @@
                                 @csrf
                                 <input name="id" style="display: none" value="{{ $users_login->id }}">
                                 <div class="row">
-                                    <div class="col-6 mb-3">
+                                    <div class="col-12 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama Lengkap <b style="color='red';">*</b></label>
                                         <input type="text" name="name" class="form-control" id="form-text" placeholder="" value="{{ $users_login->name }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Username <b style="color='red';">*</b></label>
+                                        <input type="text" name="username" class="form-control" id="form-text" placeholder="" value="{{ $users_login->username }}">
                                     </div>
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Email Pengguna</label>

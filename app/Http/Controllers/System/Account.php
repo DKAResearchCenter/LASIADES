@@ -27,6 +27,7 @@ class Account extends Controller
                     $requestData = array(
                         'name' => $request->get("name"),
                         'email' => $request->get("email"),
+                        'username' => $request->get("username"),
                         'password' => $request->get("password")
                     );
 
@@ -75,6 +76,7 @@ class Account extends Controller
                     $requestData = array(
                         'name' => $request->get("name"),
                         'email' => $request->get("email"),
+                        'username' => $request->get("username"),
                         'password' => $request->get("password")
                     );
 
