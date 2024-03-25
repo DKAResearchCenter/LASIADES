@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir</label>
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alamat</label>
                                         <textarea name="alamat" class="form-control"></textarea>
                                     </div>
                                 </div>
