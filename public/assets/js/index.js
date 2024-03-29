@@ -3,13 +3,13 @@
 var options1 = {
     series: [{
         name: 'Impressions',
-        data: [74, 85, 57, 56, 76, 35, 61, 98, 36, 50, 48, 29]
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     }, {
         name: 'Turnover',
-        data: [46, 35, 101, 98, 44, 55, 57, 56, 55, 34, 79, 46]
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     }, {
         name: 'In progress',
-        data: [26, 35, 41, 78, 34, 65, 27, 46, 37, 65, 49, 23]
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     }],
     chart: {
         height: 256,
@@ -34,7 +34,7 @@ var options1 = {
             lines: {
                 show: false
             }
-        }, 
+        },
     },
     xaxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -93,7 +93,7 @@ function salesReport() {
     var options = {
         series: [{
             name: "Value",
-            data: [5,9,5,6,4,12,18,14,10,15,12,5,8,5,12,5,12,10,16,12]
+            data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         }],
         chart: {
             type: 'area',
@@ -556,7 +556,7 @@ function salesReport() {
 
 	/*--- Apex (#spark5) closed ---*/
 
-	
+
 })();
 
 function vectormap() {

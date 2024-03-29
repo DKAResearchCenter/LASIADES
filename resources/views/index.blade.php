@@ -59,7 +59,7 @@
                             <div class="pb-0 mt-0">
                                 <div class="d-flex">
                                     <div >
-                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">0</h4>
+                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">{{ $tidakmampu->count() }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="pb-0 mt-0">
                                 <div class="d-flex">
                                     <div >
-                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">0</h4>
+                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">{{ $usaha->count() }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                             <div class="pb-0 mt-0">
                                 <div class="d-flex">
                                     <div >
-                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">0</h4>
+                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">{{ $domisili->count() }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                             <div class="pb-0 mt-0">
                                 <div class="d-flex">
                                     <div >
-                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">0</h4>
+                                        <h4 class="fs-20 fw-bold mb-1 text-fixed-white">{{ $usaha->count() + $domisili->count() + $tidakmampu->count()}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -143,16 +143,16 @@
                         <div class="card-body">
                             <div class="total-revenue">
                                 <div>
-                                    <h4>120,750</h4>
+                                    <h4>{{ $usaha->where("status","=","SELESAI")->count() + $domisili->where("status","=","SELESAI")->count() + $tidakmampu->where("status","=","SELESAI")->count()}}</h4>
                                     <label><span class="bg-primary"></span>success</label>
                                 </div>
                                 <div>
-                                    <h4>56,108</h4>
+                                    <h4>{{ $usaha->where("status","=","DIPROSES")->count() + $domisili->where("status","=","DIPROSES")->count() + $tidakmampu->where("status","=","DIPROSES")->count()}}</h4>
                                     <label><span class="bg-danger"></span>Pending</label>
                                 </div>
                                 <div>
-                                    <h4>32,895</h4>
-                                    <label><span class="bg-warning"></span>Failed</label>
+                                    <h4>{{ $usaha->where("status","=","BELUM DIPROSES")->count() + $domisili->where("status","=","BELUM DIPROSES")->count() + $tidakmampu->where("status","=","BELUM DIPROSES")->count()}}</h4>
+                                    <label><span class="bg-warning"></span>Belum Diproses</label>
                                 </div>
                             </div>
                             <div id="Sales-bar" class="sales-bar mt-4"></div>
