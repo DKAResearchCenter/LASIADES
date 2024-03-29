@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
 
             $table->bigInteger("no_kk");
+            $table->integer("id_user")->nullable();
             $table->string("nik_pemohon",20);
             $table->string("nama_lengkap",30);
             $table->string("alamat",200);

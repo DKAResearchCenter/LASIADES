@@ -94,7 +94,9 @@
                                     <td>
                                         <a href="tidak-mampu/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
                                         &nbsp;
+                                        @if($session->level_access === "ADMIN")
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

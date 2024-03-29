@@ -12,7 +12,7 @@ class domisili extends Controller
 
         $session = request()->session()->get("auth_login");
         if ($session->level_access !== "ADMIN"){
-            $domisili = DB::table("surat_domisili")->where("id","=",$session->id)->get();
+            $domisili = DB::table("surat_domisili")->where("id_user","=",$session->id)->get();
         }else{
             $domisili = DB::table("surat_domisili")->get();
         }
@@ -27,19 +27,19 @@ class domisili extends Controller
         $method = request()->method();
         switch ($method) {
             case "POST" :
+                $session = request()->session()->get("auth_login");
                 $requestData = array(
                     'no_kk' => $request->get("no_kk"),
+                    'id_user' => $session->id,
                     'nik_pemohon' => $request->get("nik_pemohon"),
                     'nama_lengkap' => $request->get("nama_lengkap"),
                     'alamat' => $request->get("alamat"),
-
                     'alasan_pindah' => $request->get("alasan_pindah"),
                     'alamat_tujuan' => $request->get("alamat_tujuan"),
                     'klarifikasi_pindah' => $request->get("klarifikasi_pindah"),
                     'jenis_kepindahan' => $request->get("jenis_kepindahan"),
                     'status_kk_tidak_pindah' => $request->get("status_kk_tidak_pindah"),
                     'status_kk_yang_pindah' => $request->get("status_kk_yang_pindah"),
-
                     'keluarga_pindah_nik' => $request->get("keluarga_pindah_nik"),
                     'keluarga_pindah_nama' => $request->get("keluarga_pindah_nama"),
                     'keluarga_pindah_tempat_lahir' => $request->get("keluarga_pindah_tempat_lahir"),
@@ -79,12 +79,13 @@ class domisili extends Controller
         $method = request()->method();
         switch ($method){
             case "POST" :
+                $session = request()->session()->get("auth_login");
                 $requestData = array(
                     'no_kk' => $request->get("no_kk"),
+                    'id_user' => $session->id,
                     'nik_pemohon' => $request->get("nik_pemohon"),
                     'nama_lengkap' => $request->get("nama_lengkap"),
                     'alamat' => $request->get("alamat"),
-
                     'alasan_pindah' => $request->get("alasan_pindah"),
                     'alamat_tujuan' => $request->get("alamat_tujuan"),
                     'klarifikasi_pindah' => $request->get("klarifikasi_pindah"),

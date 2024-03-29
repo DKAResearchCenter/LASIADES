@@ -12,7 +12,7 @@ class usaha extends Controller
 
         $session = request()->session()->get("auth_login");
         if ($session->level_access !== "ADMIN"){
-            $surat_usaha = DB::table("surat_usaha")->where("id","=",$session->id)->get();
+            $surat_usaha = DB::table("surat_usaha")->where("id_user","=",$session->id)->get();
         }else{
             $surat_usaha = DB::table("surat_usaha")->get();
         }
@@ -28,8 +28,10 @@ class usaha extends Controller
         $method = request()->method();
         switch ($method) {
             case "POST" :
+                $session = request()->session()->get("auth_login");
                 $requestData = array(
                     'nik' => $request->get("nik"),
+                    'id_user' => $session->id,
                     'nama' => $request->get("nama"),
                     'email' => $request->get("email"),
                     'phone' => $request->get("phone"),

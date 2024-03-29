@@ -12,7 +12,7 @@ class TidakMampu extends Controller
 
         $session = request()->session()->get("auth_login");
         if ($session->level_access !== "ADMIN"){
-            $tidakmampu = DB::table("surat_tidakmampu")->where("id","=",$session->id)->get();
+            $tidakmampu = DB::table("surat_tidakmampu")->where("id_user","=",$session->id)->get();
         }else{
             $tidakmampu = DB::table("surat_tidakmampu")->get();
         }
@@ -27,8 +27,10 @@ class TidakMampu extends Controller
         $method = request()->method();
         switch ($method) {
             case "POST" :
+                $session = request()->session()->get("auth_login");
                 $requestData = array(
                     'no_kk' => $request->get("kk"),
+                    'id_user' => $session->id,
                     'nama' => $request->get("nama"),
                     'email' => $request->get("email"),
                     'phone' => $request->get("phone"),
@@ -68,8 +70,10 @@ class TidakMampu extends Controller
         $method = request()->method();
         switch ($method){
             case "POST" :
+                $session = request()->session()->get("auth_login");
                 $requestData = array(
                     'no_kk' => $request->get("kk"),
+                    'id_user' => $session->id,
                     'nama' => $request->get("nama"),
                     'email' => $request->get("email"),
                     'phone' => $request->get("phone"),

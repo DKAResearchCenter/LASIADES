@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('surat_usaha', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer("id_user")->nullable();
             $table->bigInteger("nik");
             $table->string("nama", 20);
             $table->string("email");
