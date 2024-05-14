@@ -75,6 +75,7 @@
                                 <tr>
                                     <th>NIK</th>
                                     <th>KK</th>
+                                    <th>KTP</th>
                                     <th>Nama Lengkap</th>
                                     <th>No Telp</th>
                                     <th>Jenis Kelamin</th>
@@ -86,14 +87,15 @@
                                 @foreach($tidakmampu as $key => $data)
                                 <tr>
                                     <th>{{$data->id}}</th>
-                                    <th>{{$data->no_kk}}</th>
+                                    <th>{{$data->kk}}</th>
+                                    <th>{{$data->ktp}}</th>
                                     <th>{{$data->nama}}</th>
                                     <th>{{$data->phone}}</th>
                                     <th>{{$data->jenis_kelamin}}</th>
                                     <th>{{$data->penghasilan_perbulan}}</th>
                                     <td>
-                                        <a href="tidak-mampu/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
-                                        &nbsp;
+                                        <a href="tidak-mampu/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a> &nbsp;
+                                        <a href="tidak-mampu/print?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-printer"></i></a>
                                         @if($session->level_access === "ADMIN")
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                         @endif

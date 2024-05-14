@@ -5,6 +5,7 @@ namespace App\Http\Controllers\earsip;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use mikehaertl\pdftk\Pdf;
 
 class domisili extends Controller
 {
@@ -138,6 +139,20 @@ class domisili extends Controller
                 }else{
                     abort(400, "Metode Tidak Diperbolehkan");
                 }
+        }
+    }
+
+    public function Print(Request $request){
+        if ($request->has('id')) {
+            $id = $request->input('id');
+            $domisili = DB::table("surat_domisili")->where('id',"=",$id)->first();
+            if (!is_null($domisili)){
+
+            }else{
+                abort(404, "ID Data Tidak Ditemukan");
+            }
+        }else{
+            abort(400, "Metode Tidak Diperbolehkan");
         }
     }
 

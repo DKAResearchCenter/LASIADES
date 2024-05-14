@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\earsip;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+use Exception;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class TidakMampu extends Controller
@@ -28,35 +31,36 @@ class TidakMampu extends Controller
         switch ($method) {
             case "POST" :
                 $session = request()->session()->get("auth_login");
-                $requestData = array(
-                    'no_kk' => $request->get("kk"),
-                    'id_user' => $session->id,
-                    'nama' => $request->get("nama"),
-                    'email' => $request->get("email"),
-                    'phone' => $request->get("phone"),
-                    'jenis_kelamin' => $request->get("jenis_kelamin"),
-                    'penghasilan_perbulan' => $request->get("penghasilan_perbulan"),
-                    'status' => $request->get("status")
+                $requestData = array_merge(
+                    array(
+                        'id_user' => $session->id,
+                    ),
+                    $request->except('_token')
                 );
 
-                $updated = DB::table("surat_tidakmampu")
-                    ->insert($requestData);
+                try {
+                    $updated = DB::table("surat_tidakmampu")
+                        ->insert($requestData);
 
-                if ($updated == 1){
-                    return redirect("/e-arsip/tidak-mampu")
-                        ->with("status", array(
-                            'status' => true,
-                            'code' => 200,
-                            'msg' => "Berhasil menyimpan data"
-                        ));
-                }else{
-                    return redirect()
-                        ->back()
-                        ->with("status", array(
-                            'status' => false,
-                            'code' => 400,
-                            'msg' => $requestData
-                        ));
+
+                    if ($updated == 1){
+                        return redirect("/e-arsip/tidak-mampu")
+                            ->with("status", array(
+                                'status' => true,
+                                'code' => 200,
+                                'msg' => "Berhasil menyimpan data"
+                            ));
+                    }else{
+                        return redirect()
+                            ->back()
+                            ->with("status", array(
+                                'status' => false,
+                                'code' => 400,
+                                'msg' => $requestData
+                            ));
+                    }
+                }catch (Exception $e) {
+                    echo $e;
                 }
             default :
                 return view("e-arsip.TidakMampu.create",[
@@ -118,6 +122,23 @@ class TidakMampu extends Controller
                 }else{
                     abort(400, "Metode Tidak Diperbolehkan");
                 }
+        }
+    }
+
+    public function Print(Request $request){
+        if ($request->has('id')) {
+            $id = $request->input('id');
+            $tidakmampu = DB::table("surat_tidakmampu")->where('id',"=",$id)->first();
+            if (!is_null($tidakmampu)){
+                $pdf = Pdf::loadView('e-arsip.TidakMampu.print',[
+                    'data' => $tidakmampu,
+                ]);
+                return $pdf->stream();
+            }else{
+                abort(404, "ID Data Tidak Ditemukan");
+            }
+        }else{
+            abort(400, "Metode Tidak Diperbolehkan");
         }
     }
 

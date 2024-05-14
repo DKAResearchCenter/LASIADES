@@ -6,10 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ext-http": "*",
+        "ext-pdo": "*",
+        "barryvdh/laravel-dompdf": "^2.2",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
-        "ext-pdo": "*",
-        "ext-http": "*"
+        "mikehaertl/php-pdftk": "^0.13.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

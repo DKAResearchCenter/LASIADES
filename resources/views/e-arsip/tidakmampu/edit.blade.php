@@ -96,14 +96,30 @@
                                 <div class="row">
                                     <div class="col-6 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Jenis Kelamin</label>
-                                        <select class="js-example-basic-single" name="jenis_kelamin">
+                                        <select class="js-example-basic-single" name="jenis_kelamin" data-value="{{ $tidakmampu->jenis_kelamin }}">
                                             <option value="LAKI-LAKI" selected>LAKI-LAKI</option>
                                             <option value="PEREMPUAN">PEREMPUAN</option>
                                         </select>
                                     </div>
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">Penghasilan Perbulan</label>
-                                        <input name="pekerjaan" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->penghasilan_perbulan }}">
+                                        <label for="form-text" class="form-label fs-14 text-dark">alamat</label>
+                                        <input name="pekerjaan" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->alamat }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Agama</label>
+                                        <select class="js-example-basic-single" name="agama">
+                                            <option value="ISLAM" selected>ISLAM</option>
+                                            <option value="KATOLIK">KATOLIK</option>
+                                            <option value="PROTESTAN">PROTESTAN</option>
+                                            <option value="HINDU">HINDU</option>
+                                            <option value="BUDDHA">BUDDHA</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alamat</label>
+                                        <input name="alamat" class="form-control" id="form-text" placeholder="" value="{{ $tidakmampu->penghasilan_perbulan }}">
                                     </div>
                                 </div>
                                 <div class="row">

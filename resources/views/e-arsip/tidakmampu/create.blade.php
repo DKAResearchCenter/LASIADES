@@ -74,10 +74,16 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-6 mb-3">
-                                        <label for="form-text" class="form-label fs-14 text-dark">KK <b style="color='red';">*</b></label>
+                                        <label for="form-text" class="form-label fs-14 text-dark">NO KK <b style="color='red';">*</b></label>
                                         <input type="number" name="kk" class="form-control" id="form-text" placeholder="">
                                     </div>
                                     <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">NIK KTP <b style="color='red';">*</b></label>
+                                        <input type="number" name="ktp" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
                                         <label for="form-text" class="form-label fs-14 text-dark">Nama</label>
                                         <input type="text" name="nama" class="form-control" id="form-text" placeholder="">
                                     </div>
@@ -103,6 +109,33 @@
                                             <option value="LAKI-LAKI" selected>LAKI-LAKI</option>
                                             <option value="PEREMPUAN">PEREMPUAN</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Agama</label>
+                                        <select class="js-example-basic-single" name="agama">
+                                            <option value="ISLAM" selected>ISLAM</option>
+                                            <option value="KATOLIK">KATOLIK</option>
+                                            <option value="PROTESTAN">PROTESTAN</option>
+                                            <option value="HINDU">HINDU</option>
+                                            <option value="BUDDHA">BUDDHA</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Alamat</label>
+                                        <input name="alamat" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tempat Lahir</label>
+                                        <input name="tempat_lahir" class="form-control" id="form-text" placeholder="">
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <label for="form-text" class="form-label fs-14 text-dark">Tanggal Lahir</label>
+                                        <input name="tanggal_lahir" class="form-control" type="date" id="form-text" placeholder="">
                                     </div>
                                 </div>
 

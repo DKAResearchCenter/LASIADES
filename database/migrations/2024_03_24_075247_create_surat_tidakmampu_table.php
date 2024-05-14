@@ -14,11 +14,16 @@ return new class extends Migration
         Schema::create('surat_tidakmampu', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->bigInteger("no_kk");
+            $table->bigInteger("kk");
+            $table->bigInteger("ktp");
             $table->integer("id_user")->nullable();
             $table->string("nama",200);
             $table->string("email",50);
             $table->string("phone",30);
+            $table->string("tempat_lahir")->nullable()->default("MAMASA");
+            $table->date("tanggal_lahir")->nullable()->default("1982-01-01");
+            $table->string("agama")->nullable()->default("ISLAM");
+            $table->string("alamat")->nullable()->default("Desa Minanga, Kec. Bambang, Kab. Mamasa");
             $table->enum("jenis_kelamin",["PEREMPUAN","LAKI-LAKI"])->default("LAKI-LAKI");
             $table->string("penghasilan_perbulan",90);
             $table->string("file")->nullable();

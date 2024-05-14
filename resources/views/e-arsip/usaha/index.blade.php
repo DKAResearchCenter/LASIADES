@@ -92,8 +92,8 @@
                                     <th>{{$data->jenis_kelamin}}</th>
                                     <th>{{$data->pekerjaan}}</th>
                                     <td>
-                                        <a href="usaha/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
-                                        &nbsp;
+                                        <a href="usaha/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a> &nbsp;
+                                        <a href="usaha/print?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-printercomposer require mikehaertl/php-pdftk"></i></a>
                                         @if($session->level_access === "ADMIN")
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                         @endif

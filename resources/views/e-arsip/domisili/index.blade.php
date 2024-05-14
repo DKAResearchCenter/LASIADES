@@ -92,8 +92,8 @@
                                     <th>{{$data->alamat}}</th>
                                     <th>{{$data->alasan_pindah}}</th>
                                     <td>
-                                        <a href="domisili/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
-                                        &nbsp;
+                                        <a href="domisili/edit?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a> &nbsp;
+                                        <a href="domisili/print?id={{$data->id}}" class="btn btn-primary btn-sm"><i class="mdi mdi-printer"></i></a>
                                         @if($session->level_access === "ADMIN")
                                         <div class="btn btn-danger btn-sm edit"><span class="id_data" style="display: none">{{$data->id}}</span><i class="mdi mdi-delete"></i></div>
                                         @endif
